@@ -41,8 +41,8 @@ class Username extends AbstractRegexRule
         $this->minLength  = $minLength >= self::MIN_LENGTH                                       ? $minLength : self::MIN_LENGTH;
         $this->maxLength  = ($maxLength >= self::MAX_LENGTH) && ($maxLength <= self::MAX_LENGTH) ? $maxLength : self::MAX_LENGTH;
 
-        $this->disallowed = collect(explode(',', ensueConfig('username.base')))->merge(explode(',', ensueConfig('username.disallowed')));
-        $this->allowed    = collect(explode(',', ensueConfig('username.allowed')));
+        $this->disallowed = collect(explode(',', config('username.base')))->merge(explode(',', config('username.disallowed')));
+        $this->allowed    = collect(explode(',', config('username.allowed')));
 
         parent::__construct($value);
     }
