@@ -2,9 +2,10 @@
 
 Ensue Validation is an extension library for Laravel's own validation system. The package adds rules to validate data like IBAN, BIC, ISBN, creditcard numbers and more.
 
-[![Latest Version](https://img.shields.io/packagist/v/ensue/validation.svg)](https://packagist.org/packages/ensue/validation)
-![build](https://github.com/Ensue/validation/workflows/build/badge.svg)
-[![Monthly Downloads](https://img.shields.io/packagist/dm/ensue/validation.svg)](https://packagist.org/packages/ensue/validation/stats)
+[![Latest Version](https://img.shields.io/packagist/v/simtabi/ensue.svg)](https://packagist.org/packages/simtabi/ensue)
+![build](https://github.com/Simtabi/ensue/workflows/build/badge.svg)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/simtabi/ensue.svg)](https://packagist.org/packages/simtabi/ensue/stats)
+
 
 With inspiration from ``https://github.com/Intervention/validation``
 
