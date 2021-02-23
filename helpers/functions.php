@@ -1,10 +1,10 @@
 <?php
 
-if (!function_exists('overridesConfig')) {
+if (!function_exists('ensueConfig')) {
 
-    function overridesConfig($request = '')
+    function ensueConfig($request = '')
     {
-        $request = !empty($request) ? 'truss.overrides.'. trim($request) : 'truss.overrides';
+        $request = !empty($request) ? 'vendor.ensue.'. trim($request) : 'vendor.ensue';
         return config($request);
     }
 }
