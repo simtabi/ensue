@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Translation\Translator;
 use Simtabi\Laranail\Traits\LaranailTrait;
 
-class ValidationServiceProvider extends ServiceProvider
+class EnsueServiceProvider extends ServiceProvider
 {
 
     use
