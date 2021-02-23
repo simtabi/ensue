@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Simtabi\\Ensue\\Ensue\\Laravel\\EnsueServiceProvider"
+                "Simtabi\\Ensue\\Validation\\Laravel\\EnsueServiceProvider"
             ]
         }
     },
