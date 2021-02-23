@@ -1,0 +1,42 @@
+{
+    "name": "simtabi/ensue",
+    "description": "Additional Validator Functions for the Laravel Framework",
+    "keywords": ["validation", "Validator", "Ensue", "laravel", "bic", "iban", "creditcard", "isbn", "isin", "luhn"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Imani Manyara",
+            "email": "hello@imanimanyara.com",
+            "homepage": "https://imanimanyara.com/"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^5.5|~6|~7|~8",
+        "illuminate/validation": "^5.5|~6|~7|~8",
+        "simtabi/laranail": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "phpstan/phpstan": "^0.12.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "Simtabi\\Ensue\\Ensue\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Simtabi\\Ensue\\Ensue\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Simtabi\\Ensue\\Ensue\\Laravel\\EnsueServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
