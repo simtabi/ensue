@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Simtabi\\Ensue\\Ensue\\": "src"
+            "Simtabi\\Ensue\\Validation\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Simtabi\\Ensue\\Ensue\\Test\\": "tests"
+            "Simtabi\\Ensue\\Validation\\Test\\": "tests"
         }
     },
     "extra": {
