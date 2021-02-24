@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     /*
@@ -26,7 +27,7 @@ return [
     | --------------------------------------------------------
     | If validation fails, this is the message that will show.
     */
-    'message' => 'The supplied :attribute is invalid, please try again with a different username.',
+    'message' => '',
 
     /*
     |

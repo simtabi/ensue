@@ -7,7 +7,7 @@ return [
     'hexcolor'    => 'The :attribute must be a valid hexadecimal color code.',
     'creditcard'  => 'The :attribute must be a valid creditcard number.',
     'isbn'        => ':attribute must be a valid International Standard Book Number (ISBN).',
-    'username'    => 'The value :attribute must be a valid username.',
+    'username'    => 'The supplied :attribute is invalid, it must be a valid username can contain a number but not start with either a number, hyphen, underscore or double underscores. Please try again with a different username.',
     'htmlclean'   => 'The value :attribute contains forbidden HTML code.',
     'domainname'  => ':attribute must be a well formed domainname.',
     'jwt'         => 'The value :attribute does not correspond to the JSON Web Token Format',
