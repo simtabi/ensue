@@ -22,14 +22,6 @@ return [
     'disallowed' => '',
 
     /*
-    | --------------------------------------------------------
-    | Failed Validation Message
-    | --------------------------------------------------------
-    | If validation fails, this is the message that will show.
-    */
-    'message' => '',
-
-    /*
     |
     | The base list of disallowed
     | usernames. Feel free to customize,
