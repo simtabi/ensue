@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Test\Rules;
+namespace Simtabi\Ensue\Test\Rules;
 
-use Simtabi\Ensue\Validation\Rules\Bic;
+use Simtabi\Ensue\Rules\Bic;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 

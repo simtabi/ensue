@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
 class Username extends AbstractRegexRule
 {
@@ -17,7 +17,7 @@ class Username extends AbstractRegexRule
      *
      * @var string
      */
-    protected $pattern = "/^[a-z][a-z0-9]*(?:[_\-][a-z0-9]+)*$/i";
+    protected string $pattern = "/^[a-z][a-z0-9]*(?:[_\-][a-z0-9]+)*$/i";
 
     /**
      * The collection of allowed usernames

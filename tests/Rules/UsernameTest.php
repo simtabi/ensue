@@ -1,6 +1,6 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Test\Rules;
+namespace Simtabi\Ensue\Test\Rules;
 
 class UsernameTest extends AbstractRuleTestCase
 {

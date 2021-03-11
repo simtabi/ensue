@@ -1,9 +1,10 @@
 <?php
 
-namespace Simtabi\Ensue\Validation;
+namespace Simtabi\Ensue;
 
 abstract class AbstractRule
 {
+
     /**
      * Value to be validated
      *
@@ -42,6 +43,7 @@ abstract class AbstractRule
      * Set current value
      *
      * @param mixed $value
+     * @return AbstractRule
      */
     public function setValue($value): AbstractRule
     {
@@ -49,4 +51,5 @@ abstract class AbstractRule
 
         return $this;
     }
+
 }

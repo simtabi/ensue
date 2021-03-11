@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractStringRule;
+use Simtabi\Ensue\AbstractStringRule;
 
 class Cidr extends AbstractStringRule
 {

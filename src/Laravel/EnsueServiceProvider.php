@@ -1,9 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Laravel;
+namespace Simtabi\Ensue\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 use Illuminate\Translation\Translator;
 use Simtabi\Laranail\Traits\LaranailTrait;
 
@@ -114,8 +113,9 @@ class EnsueServiceProvider extends ServiceProvider
      */
     private function attachErrorMessage(&$messages, $classname, $translator)
     {
-        $key = strtolower($classname);
-        $message = $this->getErrorMessage($translator, $messages, $key);
+        $key            = strtolower($classname);
+        $message        = $this->getErrorMessage($translator, $messages, $key);
         $messages[$key] = $message;
     }
+
 }

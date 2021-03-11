@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
 class Semver extends AbstractRegexRule
 {
@@ -11,5 +11,5 @@ class Semver extends AbstractRegexRule
      *
      * @var string
      */
-    protected $pattern = "/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/";
+    protected string $pattern = "/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/";
 }

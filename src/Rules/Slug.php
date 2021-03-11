@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
 class Slug extends AbstractRegexRule
 {
@@ -11,5 +11,5 @@ class Slug extends AbstractRegexRule
      *
      * @var string
      */
-    protected $pattern = "/^[a-z0-9]+(?:-[a-z0-9]+)*$/i";
+    protected string $pattern = "/^[a-z0-9]+(?:-[a-z0-9]+)*$/i";
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Test;
+namespace Simtabi\Ensue\Test;
 
-use Simtabi\Ensue\Validation\AbstractRule;
+use Simtabi\Ensue\AbstractRule;
 use PHPUnit\Framework\TestCase;
 
 class AbstractRuleTest extends TestCase

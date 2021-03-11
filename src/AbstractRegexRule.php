@@ -1,15 +1,16 @@
 <?php
 
-namespace Simtabi\Ensue\Validation;
+namespace Simtabi\Ensue;
 
 abstract class AbstractRegexRule extends AbstractStringRule
 {
+
     /**
      * REGEX pattern of rule
      *
      * @var string
      */
-    protected $pattern;
+    protected string $pattern;
 
     /**
      * Determine if current value is valid
@@ -20,4 +21,5 @@ abstract class AbstractRegexRule extends AbstractStringRule
     {
         return (bool) preg_match($this->pattern, $this->getValue());
     }
+
 }

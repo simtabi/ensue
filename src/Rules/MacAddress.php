@@ -1,17 +1,17 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
-class Macaddress extends AbstractRegexRule
+class MacAddress extends AbstractRegexRule
 {
     /**
      * Mac Adress regex pattern
      *
      * @var string
      */
-    protected $pattern = "/^[0-9a-f]{12}$/i";
+    protected string $pattern = "/^[0-9a-f]{12}$/i";
 
     /**
      * Prepare value for validation

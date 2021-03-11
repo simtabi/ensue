@@ -26,7 +26,7 @@ The Validation library is built to work with the Laravel Framework (>=5.5). It c
 ```php
 use Simtabi\Ensue\Validation\Validator;
 use Simtabi\Ensue\Validation\Rules\HexColor;
-use Simtabi\Ensue\Validation\Exception\ValidationException;
+use Simtabi\Ensue\Validation\Exception\EnsueException;
 
 // create validator (for HexColor)
 $validator = new Validator(new HexColor);
@@ -46,7 +46,7 @@ $valid = $validator->validate('?'); // false
 // just call assert() instead of validate().
 try {
     $validator->assert('foobar');
-} catch (ValidationException $e) {
+} catch (EnsueException $e) {
     echo $e->getMessage();
 }
 ```
@@ -56,7 +56,7 @@ try {
 ```php
 use Simtabi\Ensue\Validation\Validator;
 use Simtabi\Ensue\Validation\Rules\HexColor;
-use Simtabi\Ensue\Validation\Exception\ValidationException;
+use Simtabi\Ensue\Validation\Exception\EnsueException;
 
 // create validator statically
 $valid = Validator::make(new HexColor)->validate('ccc'); // true
@@ -65,7 +65,7 @@ $valid = Validator::make(new HexColor)->validate('#www'); // false
 // throw exceptions on invalid data instead of returning boolean
 try {
     Validator::make(new HexColor)->assert('www');
-} catch (ValidationException $e) {
+} catch (EnsueException $e) {
     echo $e->getMessage();
 }
 ```
@@ -75,7 +75,7 @@ try {
 ```php
 use Simtabi\Ensue\Validation\Validator;
 use Simtabi\Ensue\Validation\Rules\HexColor;
-use Simtabi\Ensue\Validation\Exception\ValidationException;
+use Simtabi\Ensue\Validation\Exception\EnsueException;
 
 // call validation rule directly via static method
 $valid = Validator::isHexColor('#ccc'); // true
@@ -84,7 +84,7 @@ $valid = Validator::isHexColor('#www'); // false
 // throw exceptions on invalid data
 try {
     Validator::assertHexColor('foo');
-} catch (ValidationException $e) {
+} catch (EnsueException $e) {
     echo $e->getMessage();
 }
 ```
@@ -213,6 +213,97 @@ The field under validation must be all upper case.
 
 The field under validation must be a valid username with a minimum of 3 characters and maximum of 20 characters. Consisting of alpha-numeric characters, underscores, minus and starting with a alphabetic character. Multiple underscore and minus chars are not allowed. Underscore and minus chars are not allowed at the beginning or end.
 
+
+An extension to Laravel's Validator class that provides some additional validation rules.
+
+## Installation
+You can install the package via composer:
+
+```
+composer require mallardduck/extended-validator-laravel
+```
+Just require the project and Laravel's Service Provider Auto-discovery will do the rest.  
+All the new rules will be automatically registered for use without any configuration.
+
+## Requirements
+* PHP 7.3.x
+* Laravel 8.x
+
+## Available Rules
+* [`PublicIp`](#publicip)
+* [`PublicIpv4`](#publicipv4)
+* [`PublicIpv6`](#publicipv6)
+* [`UnfilledIf`](#unfilledif)
+* [`UnfilledWith`](#unfilledwith)
+* [`UnfilledWIthAll`](#unfilledwithall)
+
+### `PublicIp`
+Determine if the field under validation is a valid public IP address.  
+Just like Laravel's `ip` rule, but IPs cannot be within private or reserved ranges.
+
+```
+$rules = [
+    'ip' => 'required|public_ip',
+];
+```
+
+### `PublicIpv4`
+Determine if the field under validation is a valid public IPv4 address.  
+Just like Laravel's `ipv4` rule, but IPs cannot be within private or reserved ranges.
+
+```
+$rules = [
+    'ip' => 'required|public_ipv4',
+];
+```
+
+### `PublicIpv6`
+Determine if the field under validation is a valid public IPv6 address.  
+Just like Laravel's `ipv6` rule, but IPs cannot be within private or reserved ranges.
+
+```
+$rules = [
+    'ip' => 'required|public_ipv4',
+];
+```
+
+### `UnfilledIf`
+The field under validation must not be present if the anotherfield field is equal to any given value.  
+Think of it as the opposite of Larave's `required_if`.
+
+```
+$rules = [
+    'shape'  => 'required',
+    'size'   => 'unfilled_if:shape,rect',
+    'height' => 'unfilled_if:shape,square',
+    'width'  => 'unfilled_if:shape,square',
+];
+```
+
+### `UnfilledWith`
+The field under validation must not be present only if any of the other specified fields are present.  
+Think of it as the opposite of Larave's `required_with`.
+
+```
+$rules = [
+    'name' => 'sometimes',
+    'first_name' => 'unfilled_with:name',
+    'last_name' => 'unfilled_with:name'
+];
+```
+
+### `UnfilledWIthAll`
+The field under validation must not be present only if all the other specified fields are present.  
+Think of it as the opposite of Larave's `required_with_all`.
+
+```
+$rules = [
+    'name' => 'unfilled_with_all:first_name,middle_name,last_name',
+    'first_name' => 'sometimes',
+    'middle_name' => 'sometimes',
+    'last_name' => 'sometimes'
+];
+```
 
 ## License
 

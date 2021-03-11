@@ -1,9 +1,10 @@
 <?php
 
-namespace Simtabi\Ensue\Validation;
+namespace Simtabi\Ensue;
 
 abstract class AbstractStringRule extends AbstractRule
 {
+
     /**
      * Return current value
      *
@@ -13,4 +14,5 @@ abstract class AbstractStringRule extends AbstractRule
     {
         return @strval(parent::getValue());
     }
+
 }

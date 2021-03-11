@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-class Creditcard extends Luhn
+class CreditCard extends Luhn
 {
     /**
      * Determine if current value is valid

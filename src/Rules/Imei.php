@@ -1,6 +1,6 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
 class Imei extends Luhn
 {

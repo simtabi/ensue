@@ -1,10 +1,10 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractStringRule;
+use Simtabi\Ensue\AbstractStringRule;
 
-class Domainname extends AbstractStringRule
+class DomainName extends AbstractStringRule
 {
     /**
      * Determine if current input is valid

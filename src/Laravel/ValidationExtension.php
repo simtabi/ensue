@@ -1,12 +1,12 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Laravel;
+namespace Simtabi\Ensue\Laravel;
 
 use BadMethodCallException;
 use Exception;
 use Illuminate\Validation\Validator as IlluminateValidator;
-use Simtabi\Ensue\Validation\AbstractRule;
-use Simtabi\Ensue\Validation\Validator;
+use Simtabi\Ensue\AbstractRule;
+use Simtabi\Ensue\Ensue;
 
 class ValidationExtension extends IlluminateValidator
 {
@@ -40,7 +40,7 @@ class ValidationExtension extends IlluminateValidator
         }
 
         // do the validation work, first argument is value
-        return Validator::make($rule)->validate(data_get($arguments, 1));
+        return Ensue::make($rule)->validate(data_get($arguments, 1));
     }
 
     /**

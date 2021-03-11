@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
 class Jwt extends AbstractRegexRule
 {
@@ -11,5 +11,5 @@ class Jwt extends AbstractRegexRule
      *
      * @var string
      */
-    protected $pattern = "/^[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+$/";
+    protected string $pattern = "/^[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+$/";
 }

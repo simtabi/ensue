@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
 class Issn extends AbstractRegexRule
 {
@@ -11,7 +11,7 @@ class Issn extends AbstractRegexRule
      *
      * @var string
      */
-    protected $pattern = "/^[0-9]{4}-[0-9]{3}[0-9xX]$/";
+    protected string $pattern = "/^[0-9]{4}-[0-9]{3}[0-9xX]$/";
 
     /**
      * Determine if current value is valid ISSN

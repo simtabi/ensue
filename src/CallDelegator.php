@@ -1,22 +1,23 @@
 <?php
 
-namespace Simtabi\Ensue\Validation;
+namespace Simtabi\Ensue;
 
 class CallDelegator
 {
+
     /**
      * Name of called method
      *
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * Arguments of called method
      *
      * @var array
      */
-    protected $arguments;
+    protected array $arguments;
 
     /**
      * Create new instance
@@ -62,7 +63,7 @@ class CallDelegator
         $valid = $this->getRule()->isValid();
 
         if ($valid === false && self::parse('type') === 'assert') {
-            throw new Exception\ValidationException(
+            throw new Exception\EnsueException(
                 sprintf(
                     'Error validating value (%s) against rule "%s"',
                     $this->getValue(),
@@ -81,7 +82,7 @@ class CallDelegator
      */
     private function getRuleClassname(): string
     {
-        $classname = sprintf('Simtabi\Ensue\Validation\Rules\%s', $this->parse('rule'));
+        $classname = sprintf('Simtabi\Ensue\Rules\%s', $this->parse('rule'));
 
         if (! class_exists($classname)) {
             trigger_error(
@@ -102,7 +103,7 @@ class CallDelegator
     protected function parse(string $key): ?string
     {
         $pattern = "/^(?P<type>is|assert)(?P<rule>.*)$/";
-        $result = (bool) preg_match($pattern, $this->name, $matches);
+        $result  = (bool) preg_match($pattern, $this->name, $matches);
 
         if ($result === false) {
             trigger_error(

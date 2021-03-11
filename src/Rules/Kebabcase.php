@@ -1,8 +1,8 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractRegexRule;
+use Simtabi\Ensue\AbstractRegexRule;
 
 class Kebabcase extends AbstractRegexRule
 {
@@ -11,5 +11,5 @@ class Kebabcase extends AbstractRegexRule
      *
      * @var string
      */
-    protected $pattern = "/^(?:\p{Ll}+\-)*\p{Ll}+$/u";
+    protected string $pattern = "/^(?:\p{Ll}+\-)*\p{Ll}+$/u";
 }

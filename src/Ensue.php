@@ -1,15 +1,15 @@
 <?php
 
-namespace Simtabi\Ensue\Validation;
+namespace Simtabi\Ensue;
 
-class Validator
+class Ensue
 {
     /**
      * Current rule
      *
      * @var AbstractRule
      */
-    protected $rule;
+    protected AbstractRule $rule;
 
     /**
      * Create new instance
@@ -25,9 +25,9 @@ class Validator
      * Overwrite current rule
      *
      * @param AbstractRule $rule
-     * @return Validator
+     * @return Ensue
      */
-    public function setRule(AbstractRule $rule): Validator
+    public function setRule(AbstractRule $rule): Ensue
     {
         $this->rule = $rule;
 
@@ -50,7 +50,7 @@ class Validator
      * @param  AbstractRule $rule
      * @return self
      */
-    public static function make(AbstractRule $rule): Validator
+    public static function make(AbstractRule $rule): Ensue
     {
         return new self($rule);
     }
@@ -75,13 +75,11 @@ class Validator
     public function assert($value): void
     {
         if (! $this->validate($value)) {
-            throw new Exception\ValidationException(
-                sprintf(
-                    'Error validating value (%s) against rule "%s"',
-                    $value,
-                    get_class($this->rule)
-                )
-            );
+            throw new Exception\EnsueException(sprintf(
+                'Error validating value (%s) against rule "%s"',
+                $value,
+                get_class($this->rule)
+            ));
         }
     }
 
@@ -96,4 +94,5 @@ class Validator
     {
         return (new CallDelegator($name, $arguments))->getReturnValue();
     }
+
 }

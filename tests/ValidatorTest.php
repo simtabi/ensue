@@ -1,12 +1,12 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Test;
+namespace Simtabi\Ensue\Test;
 
-use Simtabi\Ensue\Validation\AbstractRule;
-use Simtabi\Ensue\Validation\Exception\ValidationException;
-use Simtabi\Ensue\Validation\Rules\Hexcolor;
-use Simtabi\Ensue\Validation\Rules\Iban;
-use Simtabi\Ensue\Validation\Validator;
+use Simtabi\Ensue\AbstractRule;
+use Simtabi\Ensue\Exception\EnsueException;
+use Simtabi\Ensue\Rules\HexColor;
+use Simtabi\Ensue\Rules\Iban;
+use Simtabi\Ensue\Ensue;
 use PHPUnit\Framework\TestCase;
 
 class ValidatorTest extends TestCase
@@ -14,20 +14,20 @@ class ValidatorTest extends TestCase
     public function testConstructor()
     {
         $rule = $this->getMockForAbstractClass(AbstractRule::class);
-        $validator = new Validator($rule);
-        $this->assertInstanceOf(Validator::class, $validator);
+        $validator = new Ensue($rule);
+        $this->assertInstanceOf(Ensue::class, $validator);
     }
 
     public function testMake()
     {
         $rule = $this->getMockForAbstractClass(AbstractRule::class);
-        $validator = Validator::make($rule);
-        $this->assertInstanceOf(Validator::class, $validator);
+        $validator = Ensue::make($rule);
+        $this->assertInstanceOf(Ensue::class, $validator);
     }
 
     public function testValidate()
     {
-        $validator = Validator::make(new Hexcolor());
+        $validator = Ensue::make(new HexColor());
         $this->assertIsBool($validator->validate('#ccc'));
         $this->assertIsBool($validator->validate('xxx'));
         $this->assertTrue($validator->validate('#ccc'));
@@ -36,57 +36,57 @@ class ValidatorTest extends TestCase
 
     public function testAssert()
     {
-        $validator = Validator::make(new Hexcolor());
-        $this->expectException(ValidationException::class);
+        $validator = Ensue::make(new HexColor());
+        $this->expectException(EnsueException::class);
         $validator->assert('foo');
     }
 
     public function testDynamicStaticIsValid()
     {
-        $this->assertTrue(Validator::isHexColor('#cccccc'));
+        $this->assertTrue(Ensue::isHexColor('#cccccc'));
     }
 
     public function testDynamicStaticIsInvalid()
     {
-        $this->assertFalse(Validator::isHexColor('foo'));
+        $this->assertFalse(Ensue::isHexColor('foo'));
     }
 
     public function testDynamicStaticIsNonExisting()
     {
         $this->expectError();
-        $this->assertTrue(Validator::isNonExisting('#cccccc'));
+        $this->assertTrue(Ensue::isNonExisting('#cccccc'));
     }
 
     public function testDynamicStaticAssertValid()
     {
-        $this->assertTrue(Validator::assertHexColor('#cccccc'));
+        $this->assertTrue(Ensue::assertHexColor('#cccccc'));
     }
 
     public function testDynamicStaticAssertInvalid()
     {
-        $this->expectException(ValidationException::class);
-        $this->assertFalse(Validator::assertHexColor('foo'));
+        $this->expectException(EnsueException::class);
+        $this->assertFalse(Ensue::assertHexColor('foo'));
     }
 
     public function testDynamicStaticAssertNonExisting()
     {
         $this->expectError();
-        $this->assertTrue(Validator::assertNonExisting('#cccccc'));
+        $this->assertTrue(Ensue::assertNonExisting('#cccccc'));
     }
 
     public function testNonExistingStaticCallType()
     {
         $this->expectError();
-        $this->assertTrue(Validator::fooHexColor('#cccccc'));
+        $this->assertTrue(Ensue::fooHexColor('#cccccc'));
     }
 
     public function testSetGetRule()
     {
-        $validator = new Validator(new HexColor());
+        $validator = new Ensue(new HexColor());
         $this->assertInstanceOf(HexColor::class, $validator->getRule());
 
         $result = $validator->setRule(new Iban());
-        $this->assertInstanceOf(Validator::class, $result);
+        $this->assertInstanceOf(Ensue::class, $result);
         $this->assertInstanceOf(Iban::class, $validator->getRule());
     }
 }

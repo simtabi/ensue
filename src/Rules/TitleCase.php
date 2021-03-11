@@ -1,10 +1,10 @@
 <?php
 
-namespace Simtabi\Ensue\Validation\Rules;
+namespace Simtabi\Ensue\Rules;
 
-use Simtabi\Ensue\Validation\AbstractStringRule;
+use Simtabi\Ensue\AbstractStringRule;
 
-class Titlecase extends AbstractStringRule
+class TitleCase extends AbstractStringRule
 {
     /**
      * Determine if current value is valid Title Case
