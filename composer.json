@@ -23,18 +23,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Simtabi\\Ensue\\Validation\\": "src"
+            "Simtabi\\Ensue\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Simtabi\\Ensue\\Validation\\Test\\": "tests"
+            "Simtabi\\Ensue\\Test\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Simtabi\\Ensue\\Validation\\Laravel\\EnsueServiceProvider"
+                "Simtabi\\Ensue\\Laravel\\EnsueServiceProvider"
             ]
         }
     },
